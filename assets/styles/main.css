@@ -29,7 +29,7 @@ h1{
     background-color: #ffffff;
     border: solid 1px #ededed;
     color: #4d4d4d;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1), 0 25px 50px 0 rgba(0,0,0,0.2);
 }
 
 .list-input{
@@ -110,11 +110,28 @@ button {
 }
 
 button::after {
-    opacity: 0;
+    opacity: 0.3;
     content: '×';
     transition: opacity .3s ease-in;
 }
 
 button:focus::after, button:hover::after {   /* x wird angezeigt, wenn button den Focus hat oder gehovert wird */
     opacity: 1;
+}
+
+.todo-heap > div{
+    background-color: #ffffff;
+    border: solid #ededed 1px;
+    height: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.todo-heap > div:nth-child(1){
+    margin-left: 4px;
+    width: calc(100% - 8px);
+}
+
+.todo-heap > div:nth-child(2){
+    margin-left: 8px;
+    width: calc(100% - 16px);
 }
