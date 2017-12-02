@@ -1,0 +1,25 @@
+@import 'normalize.css';
+/* @import 'reset.css';  */
+
+html{
+    font-size: 14px;
+}
+
+body{
+    margin: 0;   /* browser standard css reseten*/
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+}
+
+header, main, footer{
+    background-color: #f5f5f5;
+}
+
+header h1{
+    font-size: 100px;
+    color: #af2f2f;
+}
+
+footer{
+    height: 100px;
+}
