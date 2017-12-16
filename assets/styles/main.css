@@ -54,14 +54,17 @@ ul {
 }
 
 li {
-    overflow: auto;    /* damit die elemente die gefloatet sind nicht aus dem li fallen, man könnte es auch floaten lassen */
     padding: 15px 0;
     font-size: 24px;
     font-weight: 300;
 }
 
+li > label{
+    display: flex;
+}
+
 .checkbox-wrapper {
-    float: left;
+    flex: 0 1 auto;  /* könnte man auch weglassen, ist der default Wert */
     width: 60px;
     text-align: center;
     line-height: 40px;
@@ -84,8 +87,8 @@ li {
 }
 
 .label {
-    float: left;
-    width: calc(100% - 120px);   /* checkbox und button haben je 60px, deswegen 100%-120px */
+    flex: 0 1 80%;
+  /*  width: calc(100% - 120px);   /* checkbox und button haben je 60px, deswegen 100%-120px */
     line-height: 40px;
     white-space: nowrap;        /* Zeile bricht nicht um  */
     text-overflow: ellipsis;    /* macht die ... Punkte  */
@@ -93,8 +96,8 @@ li {
 }
 
 .button-wrapper {
-    float: left;
-    width: 60px;
+    flex: 0 1 10%;
+  /*  width: 60px;  */
     text-align: center;
 }
 
