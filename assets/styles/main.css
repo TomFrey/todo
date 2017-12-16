@@ -17,7 +17,7 @@ body{
     width: 550px;
 }
 
-h1{
+.wrapper__header{
     font-size: 100px;
     font-weight: lighter;
     color: #e8d9d9;
@@ -25,14 +25,14 @@ h1{
     margin-bottom: 20px;
 }
 
-.list-form{
+.todo{
     background-color: #ffffff;
     border: solid 1px #ededed;
     color: #4d4d4d;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1), 0 25px 50px 0 rgba(0,0,0,0.2);
 }
 
-.list-input{
+.todo__input{
     border: none;
     box-sizing: border-box;
     font-size: 24px;
@@ -40,37 +40,37 @@ h1{
     width: 100%;
 }
 
-.list-input::placeholder{
+.todo__input::placeholder{
     color: #e6e6e6;
     font-style: italic;
     font-weight: 300;
 }
 
-ul {
+.todo__list {
     border-top: 1px solid #e6e6e6;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-li {
+.todo__item-wrapper {
     padding: 15px 0;
     font-size: 24px;
     font-weight: 300;
 }
 
-li > label{
+.todo__item{
     display: flex;
 }
 
-.checkbox-wrapper {
+.todo__checkbox-wrapper {
     flex: 0 1 auto;  /* könnte man auch weglassen, ist der default Wert */
     width: 60px;
     text-align: center;
     line-height: 40px;
 }
 
-[type="checkbox"] {
+.todo__checkbox {
     vertical-align: middle;
     /*border: none;*/
     -webkit-appearance: none;
@@ -78,30 +78,28 @@ li > label{
     appearance: none;    /* blendet die Standard Checkbox aus, ohne das wir die Funktionalität verlieren / bei display:none wäre die Funktionalität weg*/
 }
 
-[type="checkbox"]::after {
+.todo__checkbox::after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
 }
 
-[type="checkbox"]:checked::after {
+.todo__checkbox:checked::after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
-.label {
+.todo__label {
     flex: 0 1 80%;
-  /*  width: calc(100% - 120px);   /* checkbox und button haben je 60px, deswegen 100%-120px */
     line-height: 40px;
     white-space: nowrap;        /* Zeile bricht nicht um  */
     text-overflow: ellipsis;    /* macht die ... Punkte  */
     overflow: hidden;           /* Text der länger ist wie das Feld wird abgeschnitten */
 }
 
-.button-wrapper {
+.todo__button-wrapper {
     flex: 0 1 10%;
-  /*  width: 60px;  */
     text-align: center;
 }
 
-button {
+.todo__button {
     background-color: transparent;
     border: none;
     color: #cc9a9a;
@@ -112,29 +110,30 @@ button {
     width: 40px;
 }
 
-button::after {
+.todo__button::after {
     opacity: 0.3;
     content: '×';
     transition: opacity .3s ease-in;
 }
 
-button:focus::after, button:hover::after {   /* x wird angezeigt, wenn button den Focus hat oder gehovert wird */
+.todo__button:focus::after, .todo__button:hover::after {   /* x wird angezeigt, wenn button den Focus hat oder gehovert wird */
     opacity: 1;
 }
 
-.todo-heap > div{
+.heap__item1{
     background-color: #ffffff;
     border: solid #ededed 1px;
     height: 4px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
-}
-
-.todo-heap > div:nth-child(1){
     margin-left: 4px;
     width: calc(100% - 8px);
 }
 
-.todo-heap > div:nth-child(2){
+.heap__item2{
+    background-color: #ffffff;
+    border: solid #ededed 1px;
+    height: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     margin-left: 8px;
     width: calc(100% - 16px);
 }
