@@ -1,0 +1,20 @@
+/**
+ * todoItems:
+ * Styled die Items innerhalb einer Todo Liste, dass wären alle li Elemente
+ */
+@import "../../base/defaultValues";
+@import "doneCheckbox";
+@import "description";
+@import "closeButton";
+
+
+.todo__item-wrapper {
+  padding: 15px 0;
+  font-size: $standardFontSize * 1.714;
+  font-weight: 300;
+}
+
+.todo__item{
+  display: flex;
+}
+

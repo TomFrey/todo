@@ -1,0 +1,14 @@
+/**
+ * todoList:
+ * Styled die Todo Liste (das ul), welches die todo Items beinhaltet
+ */
+@import "../base/defaultValues";
+@import "todoItem/todoItem";
+
+
+.todo__list {
+  border-top: 1px solid $todoBorderTop;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
