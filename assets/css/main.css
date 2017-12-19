@@ -382,6 +382,8 @@ template {
  * todoHeap:
  * Styled den Stapel unterhalb der todoListe. Eine rein grafische Sache.
  */
+/* colors */
+/* sizes */
 .heap__item1 {
   background-color: #ffffff;
   border: solid #ededed 1px;
