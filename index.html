@@ -16,15 +16,10 @@
 
         <div class="todo">
             <form action="">
-
-                <div class="todo__input">
+                <label class="todo__input">
                     <span class="todo__input-placeholder">What needs to be done?</span>
-                    <input class="todo__input-field" type="text" name="todo" id="todo" placeholder="What needs to be done?">
-                </div>
-
-
-
-
+                    <input class="todo__input-field" type="text" name="todo" placeholder="What needs to be done?" oninput="InputFieldBehaviour.setPlaceholderVisibility()">
+                </label>
                 <ul class="todo__list">
                     <li class="todo__item-wrapper">
                         <label class="todo__item">
@@ -74,5 +69,8 @@
             <div class="heap__item2"></div>
         </div>
     </div>
+
+    <script src="assets/js/inputField.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

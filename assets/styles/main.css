@@ -33,14 +33,24 @@ body{
 }
 
 .todo__input-placeholder{
-    display: none;
+    color: #e6e6e6;
+    display: block;
+    font-style: italic;
+    font-size: 16px;
+    opacity: 0;
+    padding: 16px 16px 4px 60px;
+}
+
+.todo__input-placeholder.visible{
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;    /* transistion ist einweg: zieht hier nur beim Anzeigen des Placeholders, beim Ausblenden zieht die transition nicht*/
 }
 
 .todo__input-field{
     border: none;
     box-sizing: border-box;
     font-size: 24px;
-    padding: 16px 16px 16px 60px;
+    padding: 4px 16px 16px 60px;
     width: 100%;
 }
 
