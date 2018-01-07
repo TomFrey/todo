@@ -1,0 +1,32 @@
+/**
+ * closeButton:
+ * Styled den den Close Button (das x) eines todo items.
+ */
+@import "../../base/defaultValues";
+
+
+.todo__button-wrapper {
+  flex: 0 1 10%;
+  text-align: center;
+}
+
+.todo__button {
+  background-color: transparent;
+  border: none;
+  color: $todoButton;
+  font-size: 30px;
+  font-weight: 100;
+  height: 40px;
+  margin: auto 0;
+  width: 40px;
+}
+
+.todo__button::after {
+  opacity: 0.3;
+  content: '×';
+  transition: opacity .3s ease-in;
+}
+
+.todo__button:focus::after, .todo__button:hover::after {   /* x wird angezeigt, wenn button den Focus hat oder gehovert wird */
+  opacity: 1;
+}

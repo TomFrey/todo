@@ -1,0 +1,14 @@
+/**
+ * description:
+ * Styled den Text (die Beschreibung) eines todo items
+ */
+@import "../../base/defaultValues";
+
+
+.todo__label {
+  flex: 0 1 80%;
+  line-height: 40px;
+  white-space: nowrap;        /* Zeile bricht nicht um  */
+  text-overflow: ellipsis;    /* macht die ... Punkte  */
+  overflow: hidden;           /* Text der länger ist wie das Feld wird abgeschnitten */
+}

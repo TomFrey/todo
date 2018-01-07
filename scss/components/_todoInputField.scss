@@ -1,0 +1,19 @@
+/**
+ * todoInputField:
+ * Styles the input field of a todo
+ */
+@import "../base/defaultValues";
+
+.todo__input{
+  border: none;
+  box-sizing: border-box;
+  font-size: $standardFontSize * 1.714;
+  padding: 16px 16px 16px 60px;
+  width: 100%;
+}
+
+.todo__input::placeholder{
+  color: $placeholder;
+  font-style: italic;
+  font-weight: 300;
+}

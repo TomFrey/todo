@@ -1,0 +1,24 @@
+/**
+ * todoHeap:
+ * Styled den Stapel unterhalb der todoListe. Eine rein grafische Sache.
+ */
+@import "../base/defaultValues";
+
+@mixin anyHeap__item {
+  background-color: $todoBackground;
+  border: solid $todoBorder 1px;
+  height: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.heap__item1{
+  @include anyHeap__item;
+  margin-left: 4px;
+  width: calc(100% - 8px);
+}
+
+.heap__item2{
+  @include anyHeap__item;
+  margin-left: 8px;
+  width: calc(100% - 16px);
+}

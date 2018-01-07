@@ -1,0 +1,29 @@
+/**
+ * doneCheckbox:
+ * Styled die erledigt/nicht erledigt Checkbox eines todo items.
+ */
+@import "../../base/defaultValues";
+
+
+.todo__checkbox-wrapper {
+  flex: 0 1 auto;  /* könnte man auch weglassen, ist der default Wert */
+  width: 60px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.todo__checkbox {
+  vertical-align: middle;
+  /*border: none;*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;    /* blendet die Standard Checkbox aus, ohne das wir die Funktionalität verlieren / bei display:none wäre die Funktionalität weg*/
+}
+
+.todo__checkbox::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+
+.todo__checkbox:checked::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}

@@ -1,0 +1,44 @@
+/**
+ * Base
+ */
+@import "base/normalize";
+@import "base/defaultValues";
+
+/**
+ * Components
+ */
+@import "components/sample";
+@import "components/todoInputField";
+@import "components/todoList";
+@import "components/todoHeap";
+
+html{
+  font-size: $standardFontSize;
+}
+
+body{
+  background-color: $bodyBackground;
+  margin: 0;   /* browser standard css reseten*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapper{
+  margin: 0 auto;
+  width: 550px;
+}
+
+.wrapper__header{
+  font-size: 100px;
+  font-weight: lighter;
+  color: $header;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+//Beinhaltet die todo liste und das todo input Feld
+.todo{
+  background-color: $todoBackground;
+  border: solid 1px $todoBorder;
+  color: #4d4d4d;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1), 0 25px 50px 0 rgba(0,0,0,0.2);
+}

@@ -7,54 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">   <!--ie soll immer mit der aktuellen rendering engine gerendert werden -->
     <title>TODO App</title>
 
-    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div class="wrapper">
 
-        <h1>todos</h1>
+        <h1 class="wrapper__header">todos</h1>
 
-        <div class="list-form">
+        <div class="todo">
             <form action="">
-                <input class="list-input" type="text" name="todo" id="todo" placeholder="What needs to be done?">
+                <input class="todo__input" type="text" name="todo" id="todo" placeholder="What needs to be done?">
 
-                <ul>
-                    <li>
-                        <label>
-                            <div class="checkbox-wrapper">
-                                <input type="checkbox">
+                <ul class="todo__list">
+                    <li class="todo__item-wrapper">
+                        <label class="todo__item">
+                            <div class="todo__checkbox-wrapper">
+                                <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="label" title="Falls ein langer Text vollständig angezeigt werden soll, ohne Punkte :-)">
+                            <div class="todo__label" title="Falls ein langer Text vollständig angezeigt werden soll, ohne Punkte :-)">
                                 Falls ein langer Text vollständig angezeigt werden soll
                             </div>
-                            <div class="button-wrapper">
-                                <button></button>
+                            <div class="todo__button-wrapper">
+                                <button class="todo__button"></button>
                             </div>
                         </label>
                     </li>
-                    <li>
-                        <label>
-                            <div class="checkbox-wrapper">
-                                <input type="checkbox">
+                    <li class="todo__item-wrapper">
+                        <label class="todo__item">
+                            <div class="todo__checkbox-wrapper">
+                                <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="label" title="Wasser">
+                            <div class="todo__label" title="Wasser">
                                 Wasser
                             </div>
-                            <div class="button-wrapper">
-                                <button></button>
+                            <div class="todo__button-wrapper">
+                                <button class="todo__button"></button>
                             </div>
                         </label>
                     </li>
-                    <li>
-                        <label>
-                            <div class="checkbox-wrapper">
-                                <input type="checkbox">
+                    <li class="todo__item-wrapper">
+                        <label class="todo__item">
+                            <div class="todo__checkbox-wrapper">
+                                <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="label" title="Orangensaft">
+                            <div class="todo__label" title="Orangensaft">
                                 Orangensaft
                             </div>
-                            <div class="button-wrapper">
-                                <button></button>
+                            <div class="todo__button-wrapper">
+                                <button class="todo__button"></button>
                             </div>
                         </label>
                     </li>
@@ -62,9 +62,9 @@
             </form>
         </div>
 
-        <div class="todo-heap">
-            <div></div>
-            <div></div>
+        <div class="heap">
+            <div class="heap__item1"></div>
+            <div class="heap__item2"></div>
         </div>
     </div>
 </body>
