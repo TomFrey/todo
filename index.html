@@ -14,46 +14,57 @@
 
         <h1 class="wrapper__header">todos</h1>
 
-        <div class="todo">
+        <div class="container todo">    <!-- container soll nur einmal vorkommen -->
             <form action="">
-                <input class="todo__input" type="text" name="todo" id="todo" placeholder="What needs to be done?">
+
+                <label class="row">
+                    <div class="col">
+
+                    </div>
+                    <input class="col-8 todo__input" type="text" name="todo" id="todo" placeholder="What needs to be done?">
+                    <div class="col">
+
+                    </div>
+                </label>
+
+
 
                 <ul class="todo__list">
                     <li class="todo__item-wrapper">
-                        <label class="todo__item">
-                            <div class="todo__checkbox-wrapper">
+                        <label class="row">
+                            <div class="col">
                                 <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="todo__label" title="Falls ein langer Text vollständig angezeigt werden soll, ohne Punkte :-)">
-                                Falls ein langer Text vollständig angezeigt werden soll
+                            <div class="col-8 todo__label" title="Falls ein langer Text vollständig angezeigt werden soll, ohne Punkte :-)">
+                                Falls ein langer Text vollständig angezeigt werden soll, der ganz, ganz lang ist
                             </div>
-                            <div class="todo__button-wrapper">
+                            <div class="col">
                                 <button class="todo__button"></button>
                             </div>
                         </label>
                     </li>
                     <li class="todo__item-wrapper">
-                        <label class="todo__item">
-                            <div class="todo__checkbox-wrapper">
+                        <label class="row">
+                            <div class="col">
                                 <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="todo__label" title="Wasser">
+                            <div class="col-8 todo__label" title="Wasser">
                                 Wasser
                             </div>
-                            <div class="todo__button-wrapper">
+                            <div class="col">
                                 <button class="todo__button"></button>
                             </div>
                         </label>
                     </li>
                     <li class="todo__item-wrapper">
-                        <label class="todo__item">
-                            <div class="todo__checkbox-wrapper">
+                        <label class="row">
+                            <div class="col">
                                 <input class="todo__checkbox" type="checkbox">
                             </div>
-                            <div class="todo__label" title="Orangensaft">
+                            <div class="col-8 todo__label" title="Orangensaft">
                                 Orangensaft
                             </div>
-                            <div class="todo__button-wrapper">
+                            <div class="col">
                                 <button class="todo__button"></button>
                             </div>
                         </label>

@@ -12,6 +12,29 @@
 @import "components/todoList";
 @import "components/todoHeap";
 
+/**
+ * Bootstrap
+ */
+/*mandatory*/
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+/*optional*/
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/forms";
+@import "bootstrap/grid";
+@import "bootstrap/buttons";
+
+/*
+z.b. könnte man list-group-item verwenden
+form-check, form-controll-plaintext -> richtet den Text aus
+häufig verwendet man nur das grid von Bootstrap
+ */
+
+
+
 html{
   font-size: $standardFontSize;
 }
