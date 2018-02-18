@@ -1,8 +1,8 @@
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 
-var Task = require('../assets/js/todo.js').Task;
-var TodoList = require('../assets/js/todo.js').TodoList;
+var Task = require('../assets/js/meinTodo.js').Task;
+var TodoList = require('../assets/js/meinTodo.js').TodoList;
 
 
 
@@ -47,9 +47,6 @@ describe('todo', function() {
             liste.addTask('Neue Aufgabe D');
             liste.addTask('Neue Aufgabe E');
             liste.addTask('Neue Aufgabe F');
-
-            console.log(liste.tasks)
-
 
             liste.moveTo(1, 3); //Startposition, Zielposition, wir schieben 1 auf 3
             expect(liste.tasks[3].text).equal('Neue Aufgabe B');   //A,B,C,D,E,F, -> A,C,D,B,E,F

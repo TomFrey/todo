@@ -1,0 +1,119 @@
+/**
+ * Löscht die gesamte todoListe und füllt alle todos aus
+ * dem Array wieder in die todoListe
+ *
+ * @param todoListeModel
+ */
+function renderTodoListInitialy(todoListeModel){
+
+    let todolisteGUI = document.querySelector('.todo__list');
+    //alles aus der todoListe (ul) löschen
+    while (todolisteGUI.firstChild) {
+        todolisteGUI.removeChild(todolisteGUI.firstChild);
+    }
+
+    //todos aus dem Model (array ins GUI füllen)
+    todoListeModel.tasks.forEach((todo) => {
+        todolisteGUI.appendChild(createTodoItem(todo.text));
+    });
+}
+
+
+/**
+ * Fügt der todoListe ein todo am Ende der Liste hinzu.
+ *
+ */
+function addTodoToGUI(text){
+    let todolisteGUI = document.querySelector('.todo__list');
+    todolisteGUI.appendChild(createTodoItem(text));
+}
+
+
+/**
+ *  Erzeugt folgende Struktur:
+ *
+ *  <li class="todo__item-wrapper">
+ *      <label class="todo__item">
+ *          <div class="todo__checkbox-wrapper">
+ *              <input class="todo__checkbox" type="checkbox">
+ *          </div>
+ *          <div class="todo__label">
+ *              text
+ *          </div>
+ *          <div class="todo__button-wrapper">
+ *              <button class="todo__button"></button>
+ *          </div>
+ *      </label>
+ *  </li>
+ *
+ * @param text
+ * @returns {HTMLLIElement}
+ */
+function createTodoItem(text){
+    let newLi = document.createElement('li');
+    newLi.classList.add('todo__item-wrapper');
+
+    let newLabel = document.createElement('label');
+    newLabel.classList.add('todo__item');
+    newLabel.appendChild(createCheckBox());
+    newLabel.appendChild(createTodoItemText(text));
+    newLabel.appendChild(createCloseButton());
+
+    newLi.appendChild(newLabel);
+    return newLi;
+}
+
+/**
+ *   Erzeugt folgende Struktur:
+ *
+ *  <div class="todo__checkbox-wrapper">
+ *     <input class="todo__checkbox" type="checkbox">
+ *  </div>
+ * @returns {HTMLDivElement}
+ */
+function createCheckBox(){
+    let newCheckBox = document.createElement('div');
+    newCheckBox.classList.add('todo__checkbox-wrapper');
+
+    let newInput = document.createElement('input');
+    newInput.classList.add('todo__checkbox');
+    newInput.setAttribute('type','checkbox');
+
+    newCheckBox.appendChild(newInput);
+    return newCheckBox;
+}
+
+/**
+ *   Erzeugt folgende Struktur:
+ *
+ *   <div class="todo__button-wrapper">
+ *       <button class="todo__button"></button>
+ *   </div>
+ * @returns {HTMLDivElement}
+ */
+function createCloseButton(){
+    let newCloseButton = document.createElement('div');
+    newCloseButton.classList.add('todo__button-wrapper');
+
+    let newButton = document.createElement('button');
+    newButton.classList.add('todo__button');
+
+    newCloseButton.appendChild(newButton);
+    return newCloseButton;
+}
+
+/**
+ *   Erzeugt folgende Struktur:
+ *
+ *   <div class="todo__label">
+ *      text
+ *   </div>
+ * @returns {HTMLDivElement}
+ */
+function createTodoItemText(text){
+    let newItemText = document.createElement('div');
+    newItemText.classList.add('todo__label');
+    newItemText.innerText = text;
+    return newItemText;
+}
+

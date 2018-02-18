@@ -8,17 +8,19 @@ class TodoList{
 
     /**
      * Füge einen neuen Task der Liste hinzu.
-     * @param text
+     * @param text Text des Tasks
      */
     addTask(text){
         let neuerTask = new Task(text);
-        if(this.tasks.length >0){
+
+        if(this.tasks.length > 0){
             let letztePosition = this.tasks[this.tasks.length-1].position;
             neuerTask.position = ++letztePosition;
         }
         this.tasks.push(neuerTask);
         return neuerTask;
     }
+
 
     /**
      * Lösche den übergebenen Task
@@ -57,18 +59,35 @@ class TodoList{
 
         this.tasks.sort(((a, b) => a.position - b.position));
     }
+
+
+    /**
+     * Einen Task aus der Liste als erledigt markieren
+     * @param index
+     */
+    uncheckTask(index) {
+        this.tasks[index].uncheck();
+    }
+
+
+    /**
+     * Einen Task aus der Liste als erledigt markieren
+     * @param index
+     */
+    checkTask(index) {
+        this.tasks[index].check();
+    }
 }
 
 
 class Task{
-    constructor(text, istErledigt) {
+    constructor(text) {
         this.id = 1;
-        this.text = text || '';
-        this.istErledigt = istErledigt;
-
+        this._text = text || '';
+        this.erledigt = false;
         this._position = 1;
-
     }
+
 
     /**
      * getter funktion für position: kann man aufrufen mit "x.position"
@@ -85,25 +104,44 @@ class Task{
     set position(value){
         if (typeof value === 'number'){
             this._position = value;
+            this.id = value;
         } else {
-            throw error('mein Fehler');
+            console.warn('Es wurde ein nicht numerischer Typ der Position zugewiesen');
         }
 
     };
 
 
     /**
+     * Text des Tasks
+     * @returns {String}
+     */
+    get text() {
+        return this._text;
+    }
+
+    /**
+     * Aktualisere den Text
+     * @param v {String}
+     */
+    set text(v) {
+        this._text = v;
+    }
+
+
+    /**
      * Markiert einen Task als erledigt.
      */
     check(){
-        this.istErledigt = true;
+        this.erledigt = true;
     }
+
 
     /**
      * Markiert einen Task als nicht erledigt.
      */
     uncheck(){
-        this.istErledigt = false;
+        this.erledigt = false;
     }
 }
 
