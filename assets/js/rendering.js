@@ -14,19 +14,36 @@ function renderTodoListInitialy(todoListeModel){
 
     //todos aus dem Model (array ins GUI füllen)
     todoListeModel.tasks.forEach((todo) => {
-        todolisteGUI.appendChild(createTodoItem(todo.text));
+        todolisteGUI.appendChild(createTodoItem(todo.text, todo));
     });
 }
 
 
 /**
- * Fügt der todoListe ein todo am Ende der Liste hinzu.
+ *  Fügt der todoListe ein todoItem am Ende der Liste hinzu.
  *
+ * @param text - des todoItem
+ * @param id   - des todoItem
+ * @returns {HTMLLIElement} - das hinzugefügte todoItem
  */
-function addTodoToGUI(text){
+function addTodoToGUI(text, todoItem){
     let todolisteGUI = document.querySelector('.todo__list');
-    todolisteGUI.appendChild(createTodoItem(text));
+    let newTodo = createTodoItem(text, todoItem);
+    todolisteGUI.appendChild(newTodo);
+    return newTodo;
 }
+
+
+/**
+ * Löscht ein todoItem aus der Liste
+ *
+ * @param event
+ */
+function removeTodoFromGUI(event){
+   event.target.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode);
+};
+
+
 
 
 /**
@@ -49,9 +66,11 @@ function addTodoToGUI(text){
  * @param text
  * @returns {HTMLLIElement}
  */
-function createTodoItem(text){
+function createTodoItem(text, todoItem){
     let newLi = document.createElement('li');
     newLi.classList.add('todo__item-wrapper');
+    //das ganze todoItem dem li anhängen, damit man weiss, von wo der Event kam
+    newLi.todo = todoItem;
 
     let newLabel = document.createElement('label');
     newLabel.classList.add('todo__item');
