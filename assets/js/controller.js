@@ -27,25 +27,51 @@ ready(() => {
     });
 
 
-    //Event Listener auf dem Delete Button (x) jedes Todos. Umgesetzt mit Event Delegation, der Listener sitzt auf der
-    //Liste. Das entsprechende todoItem aus der Liste löschen
+    //Event Listener. Umgesetzt mit Event Delegation, der Listener sitzt auf der
+    //Liste.
     let todolisteGUI = document.querySelector('#todo__list');
     todolisteGUI.addEventListener('click', function(event){
 
-        if(event.target && event.target.matches('.todo__button')){
 
-            console.log('delete', event.target.parentNode.parentNode.parentNode);
-            console.dir(event.target.parentNode.parentNode.parentNode);
+        //Wenn der Delete Button (x) gedrückt wurde,
+        //das entsprechende todoItem aus der Liste löschen
+        if(event.target && event.target.matches('.todo__button')){
+            let todoItemFromGUI = event.target.parentNode.parentNode.parentNode.todo;
 
             //todoItem aus dem Model löschen
             todoListModel.tasks.forEach(function(task){
-                if(task.id === event.target.getAttribute('todoid')){
+                if(task.id === todoItemFromGUI.id){
                     todoListModel.removeTask(task.id-1);
                 }
             });
             removeTodoFromGUI(event);
-
+            storeTodoList(todoListModel);
         }
+
+
+
+        //Wenn die Checkbox gedrückt wurde,
+        //das entsprechende todoItem in der Liste checken, unchecken
+        if(event.target && event.target.matches('.todo__checkbox')){
+            let todoItemFromGUI = event.target.parentNode.parentNode.parentNode.todo;
+
+            console.log('checkbox');
+
+            //Model anpassen
+            todoListModel.tasks.forEach(function(task){
+                if(task.id === todoItemFromGUI.id){
+                    task.erledigt = task.erledigt ? false : true;
+                }
+            });
+
+            //Model speichern
+            storeTodoList(todoListModel);
+        }
+
+
+
+
+
     });
 
 });

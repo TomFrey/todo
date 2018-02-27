@@ -74,7 +74,7 @@ function createTodoItem(text, todoItem){
 
     let newLabel = document.createElement('label');
     newLabel.classList.add('todo__item');
-    newLabel.appendChild(createCheckBox());
+    newLabel.appendChild(createCheckBox(todoItem.erledigt));
     newLabel.appendChild(createTodoItemText(text));
     newLabel.appendChild(createCloseButton());
 
@@ -90,13 +90,19 @@ function createTodoItem(text, todoItem){
  *  </div>
  * @returns {HTMLDivElement}
  */
-function createCheckBox(){
+function createCheckBox(erledigt){
     let newCheckBox = document.createElement('div');
     newCheckBox.classList.add('todo__checkbox-wrapper');
 
     let newInput = document.createElement('input');
     newInput.classList.add('todo__checkbox');
     newInput.setAttribute('type','checkbox');
+
+    if(erledigt){
+        newInput.checked = true;
+    } else {
+        newInput.checked = false;
+    }
 
     newCheckBox.appendChild(newInput);
     return newCheckBox;

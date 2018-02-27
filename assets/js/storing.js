@@ -5,6 +5,9 @@
  */
 function storeTodoList(todoListModel){
     let jsonList = JSON.stringify(todoListModel.tasks);
+
+    console.log('a: ' + jsonList);
+
     localStorage.setItem('todoList', jsonList);
 }
 
