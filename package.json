@@ -19,6 +19,6 @@
     "nyc": "^11.4.1"
   },
   "dependencies": {
-    "todooo": "github:WebProfessionals/todooo"
+    "todooo": "github:WebProfessionals/todooo#^1.2.0"
   }
 }
