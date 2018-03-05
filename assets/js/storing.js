@@ -42,7 +42,13 @@ var Store = (function(){
         }
     }
 
-
+    /**
+     * Holt die gespeicherte TodoListe vom Server /api/daten.json
+     * mit XHR (ajax)
+     *
+     * @param callbackWhenModelIsReady
+     * @returns {TodoList|*}
+     */
     function getTodoListFromServer(callbackWhenModelIsReady){
         let todoListModel = new TodoList();
         let request = new XMLHttpRequest();
@@ -51,20 +57,16 @@ var Store = (function(){
 
         request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
-                console.log(request.responseText);
-
                 let todosAsArrayOfObjects = JSON.parse(request.responseText);
 
-                console.log('array ' + todosAsArrayOfObjects);
-
                 todosAsArrayOfObjects.forEach(function(todo, index){
-                    console.log('todo: '+ todo._text);
                     todoListModel.addTask(todo._text);
                     if(todo.erledigt){
                         todoListModel.checkTask(index);
                     }
                 });
 
+                //Model is ready call Render.allTodos
                 callbackWhenModelIsReady();
             }
             //es konnten keine Daten vom Server geladen werden, leere Liste zurück geben
@@ -74,8 +76,6 @@ var Store = (function(){
         };
 
         request.send();
-
-
         return todoListModel;
     }
 

@@ -3,46 +3,26 @@
 
 var App = (function(Render, Store){
 
-
+    /**** wird vor dem DOM ready ausgeführt ****/
     let todoListModel;
 
-
-    function loadModel(callbackWhenModelIsReady){
-        /**** wird vor dem DOM ready ausgeführt ****/
-        //gesamte ToDoListe aus dem Array (local storage) laden
-        console.log('loadModel() called');
-        //let todoListModel = Store.getAllTodos();
-
-        todoListModel = Store.getAllTodosFromServer(callbackWhenModelIsReady);
-        console.log('todoListModel: ' + todoListModel.tasks.length);
-
-
-       // if(todoListModel){
-       //     callbackWhenModelIsReady();
-       // }
-
-        setTimeout(function(){
-            console.log('später todoListModel: ' + todoListModel.tasks.length);
-        }, 3000);
-
-       //setTimeout(callbackWhenModelIsReady, 3000);
-
-
-    };
-
-
-
-
-
+    let whenModelIsReadyRenderTodoList = () => {
+        //DOM mit den todos aus der todoliste aufbauen
+        Render.allTodos(todoListModel);
+    }
 
 
     /**** wird nach dem DOM ready ausgeführt ****/
     function init(){
         console.log('init() called');
-        console.log('todoListModel: '+todoListModel);
 
-        //DOM mit den todos aus der todoliste aufbauen
-        Render.allTodos(todoListModel);
+        //gesamte ToDoListe aus dem Array (local storage) laden
+        //todoListModel = Store.getAllTodos();
+        //whenModelIsReadyRenderTodoList();
+
+        //gesamte ToDoListe vom Server laden (/api/daten.json)
+        todoListModel = Store.getAllTodosFromServer(whenModelIsReadyRenderTodoList);
+
 
         //Event Listener, wenn das Eingabefeld mit Enter verlassen wird,
         //dann ein neues todoItem der Liste hinzufügen
@@ -111,16 +91,15 @@ var App = (function(Render, Store){
 
     //public api
     return{
-        loadModel: loadModel,
         init: init
     }
 
 })(Render, Store);
 
 
-//wenn der DOM vollständig geladen ist
-//ready(App.init);
+//wenn der DOM vollständig geladen ist init aufrufen
+ready(App.init);
 
 //wenn ich loadModel ohne bind aufrufe, wird App.loadModel sofort aufgerufen, ich will aber das erst die ready Funktion
 //die App.loadModel Funktion aufruft. App.init wiederrum soll erst aufgerufen werden, wenn das Modell geladen ist.
-ready(App.loadModel.bind(null, App.init));
+//ready(App.loadModel.bind(null, App.init));
