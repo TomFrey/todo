@@ -34,7 +34,10 @@ var App = (function(Render, Store){
                 Render.addTodo(newTodo);    //Muss das todoItem übergeben, damit ich beim löschen weiss,
                                             //welches todoItem ich aus dem Modell löschen muss
                 taskInputField.value = '';
-                Store.saveAll(todoListModel);
+
+                //Modell speichern
+                //Store.saveAll(todoListModel);
+                Store.saveAllTodosOnServer(todoListModel);
             }
         });
 
@@ -56,7 +59,10 @@ var App = (function(Render, Store){
                 });
 
                 Render.removeTodo(event);
-                Store.saveAll(todoListModel);
+
+                //Modell speichern
+                //Store.saveAll(todoListModel);
+                Store.saveAllTodosOnServer(todoListModel);
             }
 
             //Wenn die Checkbox gedrückt wurde,
@@ -73,8 +79,9 @@ var App = (function(Render, Store){
                     }
                 });
 
-                //Model speichern
-                Store.saveAll(todoListModel);
+                //Modell speichern
+                //Store.saveAll(todoListModel);
+                Store.saveAllTodosOnServer(todoListModel);
             }
 
             //Wenn die Checkbox gedrückt wurde,
@@ -99,7 +106,3 @@ var App = (function(Render, Store){
 
 //wenn der DOM vollständig geladen ist init aufrufen
 ready(App.init);
-
-//wenn ich loadModel ohne bind aufrufe, wird App.loadModel sofort aufgerufen, ich will aber das erst die ready Funktion
-//die App.loadModel Funktion aufruft. App.init wiederrum soll erst aufgerufen werden, wenn das Modell geladen ist.
-//ready(App.loadModel.bind(null, App.init));

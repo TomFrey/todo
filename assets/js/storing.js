@@ -79,6 +79,33 @@ var Store = (function(){
         return todoListModel;
     }
 
+    /**
+     *  Speichert das array mit allen todoItems auf dem Server /api/daten.json
+     *
+     * @param todoListModel
+     */
+    function storeTodoListOnServer(todoListModel){
+        let todoListJson = JSON.stringify(todoListModel.tasks);
+        let request = new XMLHttpRequest();
+
+        request.open('POST', './api/daten.json', true);
+        request.setRequestHeader("Content-Type", "application/json");
+
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                let answerFromServer = JSON.parse(request.responseText);
+                console.log('frt: ' +answerFromServer);
+            }
+            else {
+                console.log('Server meldet fehler');
+            }
+        };
+
+        request.send(todoListJson);
+    };
+
+
 
     //mit promises
     function test (){
@@ -115,7 +142,8 @@ var Store = (function(){
     return {
         saveAll: storeTodoList,
         getAllTodos: getTodoListFromStore,
-        getAllTodosFromServer: getTodoListFromServer
+        getAllTodosFromServer: getTodoListFromServer,
+        saveAllTodosOnServer: storeTodoListOnServer
     };
 
 })();
